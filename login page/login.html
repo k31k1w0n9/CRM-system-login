@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="login.css" />
+    <title>Login Panel</title>
+</head>
+<body>
+    <div class="container">
+        <div class="tab-header">
+            <div class="tab active" onclick="showTab('admin', event)">Admin</div>
+            <div class="tab" onclick="showTab('sales', event)">Sales</div>
+        </div>
+
+        <div class="tab-content active" id="admin">
+            <div class="login-box">
+                <div class="head">
+                    <img src="tophat-crown.png" alt="tophat-crown" class="tophat-crown">
+                    <img src="tophat-brim.png" alt="tophat-brim" class="tophat-brim">
+                    <img src="face.png" alt="face" class="face">
+                    <div class="eyes">
+                        <img src="eyebrows.png" alt="eyebrows" class="eyebrows">
+                        <img src="left-eye.png" alt="left-eye" class="left-eye">
+                        <img src="right-eye.png" alt="right-eye" class="right-eye">
+                    </div>
+                    <img src="mustache.png" alt="mustache" class="mustache">
+                </div>
+                <h2>Admin Login</h2>
+                <form>
+                    <div class="textbox">
+                        <input type="text" id="admin-username" name="username" required>
+                        <label for="admin-username">Username</label>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" id="admin-password" name="password" required>
+                        <label for="admin-password">Password</label>
+                    </div>                    
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="tab-content" id="sales">
+            <div class="login-box">
+                <div class="head">
+                    <img src="tophat-crown.png" alt="tophat-crown" class="tophat-crown">
+                    <img src="tophat-brim.png" alt="tophat-brim" class="tophat-brim">
+                    <img src="face.png" alt="face" class="face">
+                    <div class="eyes">
+                        <img src="eyebrows.png" alt="eyebrows" class="eyebrows">
+                        <img src="left-eye.png" alt="left-eye" class="left-eye">
+                        <img src="right-eye.png" alt="right-eye" class="right-eye">                        
+                    </div>
+                    <img src="mustache.png" alt="mustache" class="mustache">
+                </div>
+                <h2>Sales Login</h2>
+                <form>
+                    <div class="textbox">
+                        <input type="text" id="sales-username" name="username" required>
+                        <label for="sales-username">Username</label>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" id="sales-password" name="password" required>
+                        <label for="sales-password">Password</label>
+                    </div>                    
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

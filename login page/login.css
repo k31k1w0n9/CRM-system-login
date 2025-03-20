@@ -1,0 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e6ecef;
+    padding-top: 50px; 
+    overflow: hidden; 
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    background: #f7f9fb;
+    border-radius: 10px;
+    overflow: visible;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+.tab-header {
+    display: flex;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #6c8294;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 5;
+    position: relative;
+}
+
+.tab.active {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #4a5f70;
+}
+
+.tab:hover:not(.active) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #5b7386;
+}
+
+.login-box {
+    padding: 40px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 5;
+}
+
+.head {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.face {
+    position: absolute;
+    bottom: -255px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 650px; 
+    object-fit: contain;
+    z-index: 1;
+}
+
+.tophat-crown {
+    position: absolute;
+    bottom: -265px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 670px; 
+    object-fit: contain;
+    z-index: 3; /* Above face and eyes */
+}
+
+.tophat-brim {
+    position: absolute;
+    bottom: -265px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 670px; 
+    object-fit: contain;
+    z-index: 2; /* Below crown, above face */
+}
+
+.mustache {
+    position: absolute;
+    bottom: -265px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 670px;
+    object-fit: contain;
+    z-index: 4;
+}
+
+.eyes {
+    position: absolute;
+    top: 30%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 550px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+
+.eyebrows {
+    position: absolute;
+    bottom: 220px;
+    left: 50%;
+    width: 275px;
+    height: 560px;
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+}
+
+.left-eye {
+    position: absolute;
+    bottom: 220px;
+    left: 50%;
+    width: 150px;
+    height: 660px;
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+    transition: opacity 0.3s;
+}
+
+.right-eye {
+    position: absolute;
+    bottom: 220px;
+    left: 50%;
+    width: 150px;
+    height: 660px;
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+    transition: opacity 0.3s;
+}
+
+.cover .left-eye,
+.cover .right-eye {
+    opacity: 0; /* Hide eyes when covered */
+}
+
+.cover .eyebrows {
+    position: absolute;
+    bottom: 215px;
+    left: 50%;
+    width: 275px;
+    height: 560px;
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+}
+
+
+.face, .tophat-crown, .tophat-brim, .mustache, .eyes, .eyebrows, .left-eye, .right-eye {
+    pointer-events: none; /* This allows clicks to pass through these elements */ 
+    user-select: none;
+    -drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.login-box h2 {
+    color: #4a5f70;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+
+.textbox {
+    position: relative;
+    margin-bottom: 30px;
+    z-index: 5;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #6c8294;
+    outline: none;
+    color: #4a5f70;
+    font-size: 16px;
+}
+
+.textbox label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #6c8294;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.textbox input:focus ~ label,
+.textbox input:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: #4a5f70;
+}
+
+.btn {
+    width: 100%;
+    background: #4a5f70;
+    border: none;
+    padding: 12px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    z-index: 5;
+    position: relative;
+}
+
+.btn:hover {
+    background: #5b7386;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* mobile compatibilty */
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .login-box {
+        padding: 30px 20px;
+    }
+    
+    .login-box h2 {
+        margin-top: 60px;
+        font-size: 20px;
+    }
+    
+    .btn {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+    
+    .tab {
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+    
+    /* Adjust character positioning for smaller screens */
+    .head {
+        top: -70px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .face {
+        bottom: -220px;
+        width: 130px;
+        height: 560px;
+    }
+    
+    .tophat-crown,
+    .tophat-brim {
+        bottom: -225px;
+        width: 130px;
+        height: 580px;
+    }
+    
+    .mustache {
+        bottom: -225px;
+        width: 130px;
+        height: 580px;
+    }
+    
+    .eyebrows {
+        bottom: 275px;
+        width: 240px;
+        height: 480px;
+    }
+    
+    .left-eye,
+    .right-eye {
+        bottom: 275px;
+        width: 130px;
+        height: 565px;
+    }
+    
+    .login-box h2 {
+        margin-top: 50px;
+    }
+    
+    .textbox {
+        margin-bottom: 25px;
+    }
+    
+    .textbox input {
+        font-size: 14px;
+    }
+    
+    .textbox label {
+        font-size: 14px;
+    }
+    
+    .btn {
+        font-size: 14px;
+    }
+}
+
+/* Add touchscreen support for hover effects */
+@media (hover: none) {
+    .tab:active:not(.active) {
+        background: #5b7386;
+    }
+    
+    .btn:active {
+        background: #5b7386;
+    }
+}
